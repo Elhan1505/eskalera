@@ -5,8 +5,8 @@
   --color-secondary: #ff6b6b;
   --color-dark: #1a1a2e;
   --color-dark-alt: #16213e;
-  --color-text: #2c3e50;
-  --color-text-light: #6c757d;
+  --color-text: #1a1a1a;
+  --color-text-light: #4a4a4a;
   --color-bg: #ffffff;
   --color-bg-light: #f8f9fa;
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -53,7 +53,7 @@ h1, h2, h3, h4 {
   line-height: 1.2;
   margin-bottom: 24px;
   font-weight: 700;
-  color: var(--color-dark);
+  color: #000000;
   letter-spacing: -0.02em;
 }
 
@@ -64,22 +64,24 @@ h1 {
 
 h2 {
   font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
 }
 
 h3 {
   font-size: clamp(1.5rem, 3vw, 2rem);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 h4 {
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 p {
   margin-bottom: 16px;
   line-height: 1.8;
-  color: var(--color-text-light);
+  color: var(--color-text);
+  font-size: 1.05rem;
 }
 
 /* Hero Section */
@@ -184,9 +186,10 @@ p {
   text-align: center;
   font-size: clamp(2rem, 4vw, 3rem);
   margin-bottom: 24px;
-  color: var(--color-dark);
+  color: #000000;
   position: relative;
   width: 100%;
+  font-weight: 900;
 }
 
 .section-title::after {
@@ -201,12 +204,13 @@ p {
 
 .section-subtitle {
   text-align: center;
-  font-size: clamp(1.1rem, 2vw, 1.3rem);
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
   margin-bottom: 64px;
-  color: var(--color-text-light);
+  color: var(--color-text);
   max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  font-weight: 500;
 }
 
 /* Video Proof Section */
@@ -302,16 +306,17 @@ p {
 }
 
 .stat-title {
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 12px;
-  color: var(--color-dark);
-  font-size: 1.1rem;
+  color: #000000;
+  font-size: 1.2rem;
 }
 
 .stat-description {
-  color: var(--color-text-light);
+  color: var(--color-text);
   margin-bottom: 16px;
   line-height: 1.7;
+  font-size: 1.05rem;
 }
 
 .stat-highlight {
@@ -1168,13 +1173,39 @@ button:active::after {
 .review-text,
 .timeline-description {
   color: var(--color-text);
-  font-size: 1rem;
+  font-size: 1.05rem;
+  font-weight: 400;
 }
 
-/* Ensure all important text is readable */
+/* Improve visibility of all body text */
+.pricing-note,
+.cta-subtitle,
+.gallery-material,
+.review-author,
+.faq-answer {
+  color: var(--color-text);
+}
+
+/* Make metric colors more vibrant */
+.stat-metric {
+  background: linear-gradient(135deg, #ff0000, #ff6b6b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: brightness(1.1);
+}
+
+/* Ensure all important text is readable on dark backgrounds */
 .hero-title,
-.hero-subtitle {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+.hero-subtitle,
+.utp-title,
+.utp-subtitle,
+.footer-section h1,
+.footer-section h2,
+.footer-section h3,
+.footer-section h4 {
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  color: white !important;
 }
 
 /* Better focus states */
