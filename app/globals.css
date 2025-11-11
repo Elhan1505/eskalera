@@ -1087,18 +1087,25 @@ p {
 }
 
 /* Scroll Animations */
+/* Default: всё видимо (для случаев без JS) */
 section {
-  opacity: 0;
-  transform: translateY(30px);
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-section.visible {
+/* Анимации работают только когда JS активен */
+body.js-loaded section:not(.hero-section):not(.visible) {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+body.js-loaded section.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Hero section should always be visible */
+/* Hero section always visible */
 .hero-section {
   opacity: 1 !important;
   transform: translateY(0) !important;
@@ -1179,12 +1186,34 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
 }
 
-/* Loading state for cards */
+/* Card animations - visible by default */
 .stat-card,
 .gallery-card,
 .review-card,
-.pricing-card {
+.pricing-card,
+.matrix-card {
+  opacity: 1;
+  transform: translateY(0);
   transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Animate cards only when JS is loaded */
+body.js-loaded .stat-card:not(.animate),
+body.js-loaded .gallery-card:not(.animate),
+body.js-loaded .review-card:not(.animate),
+body.js-loaded .pricing-card:not(.animate),
+body.js-loaded .matrix-card:not(.animate) {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+body.js-loaded .stat-card.animate,
+body.js-loaded .gallery-card.animate,
+body.js-loaded .review-card.animate,
+body.js-loaded .pricing-card.animate,
+body.js-loaded .matrix-card.animate {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Smooth image loading */
