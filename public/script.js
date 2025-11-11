@@ -3,6 +3,9 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('✨ Эскалера лендинг загружен');
 
+  // Enable animations after JS loaded
+  document.body.classList.add('js-loaded');
+
   // ===== Create Progress Bar =====
   const progressBar = document.createElement('div');
   progressBar.className = 'scroll-progress';
@@ -39,8 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
     entries.forEach((entry, index) => {
       if (entry.isIntersecting) {
         setTimeout(() => {
-          entry.target.style.opacity = '1';
-          entry.target.style.transform = 'translateY(0)';
+          entry.target.classList.add('animate');
         }, index * 100);
       }
     });
@@ -55,10 +57,8 @@ document.addEventListener('DOMContentLoaded', function() {
     ...document.querySelectorAll('.pricing-card')
   ];
 
+  // Cards will be visible by default, animations handled by CSS
   cards.forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(30px)';
-    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     cardObserver.observe(card);
   });
 
