@@ -3,6 +3,18 @@
 document.addEventListener('DOMContentLoaded', function() {
   console.log('✨ Эскалера лендинг загружен');
 
+  // ===== Create Progress Bar =====
+  const progressBar = document.createElement('div');
+  progressBar.className = 'scroll-progress';
+  document.body.appendChild(progressBar);
+
+  // Update progress bar on scroll
+  window.addEventListener('scroll', () => {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.scrollY / windowHeight) * 100;
+    progressBar.style.width = scrolled + '%';
+  });
+
   // ===== Scroll Animations =====
   const observerOptions = {
     threshold: 0.1,

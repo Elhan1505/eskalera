@@ -1085,3 +1085,148 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+/* Scroll Animations */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero section should always be visible */
+.hero-section {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Progress Bar on Scroll */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  z-index: 9999;
+  transition: width 0.2s ease;
+}
+
+/* Button Ripple Effect */
+button {
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+button:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Improved Text Contrast */
+.section-title {
+  color: var(--color-dark);
+  font-weight: 800;
+}
+
+.section-subtitle {
+  color: var(--color-text);
+  font-size: 1.2rem;
+}
+
+/* Better visibility for stats */
+.stat-card {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.stat-description,
+.review-text,
+.timeline-description {
+  color: var(--color-text);
+  font-size: 1rem;
+}
+
+/* Ensure all important text is readable */
+.hero-title,
+.hero-subtitle {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Better focus states */
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* Loading state for cards */
+.stat-card,
+.gallery-card,
+.review-card,
+.pricing-card {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Smooth image loading */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better button states */
+.cta-primary,
+.cta-secondary {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.cta-primary:disabled,
+.cta-secondary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Accessibility improvements */
+a:focus,
+button:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip to content for accessibility */
+.skip-to-content {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 100;
+}
+
+.skip-to-content:focus {
+  top: 0;
+}
